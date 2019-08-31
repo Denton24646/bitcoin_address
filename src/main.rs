@@ -20,12 +20,15 @@ fn main() {
         y: (*point_y.as_bytes()).to_vec(),
     };
 
-    let result:[u8; 65] = p.concatenate();
-    let r = str::from_utf8(&result).unwrap();
-    println!("result = {}", r);
+    let concat:[u8; 65] = p.concatenate();
+    let c = str::from_utf8(&concat).unwrap();
+    println!("concat = {}", c);
 
-    let sha = hash::get_sha256(&result);
-    println!("hash = {:#?}", sha);
+    let sha = hash::get_sha256(&concat);
+    println!("sha = {}", sha);
+
+    let ripemd = hash::get_ripemd(&sha);
+    println!("ripemd = {}", ripemd);
 }
 
 
