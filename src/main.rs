@@ -3,7 +3,10 @@ use std::str;
 
 use crate::point::Concat;
 
+extern crate crypto;
+
 mod point;
+mod hash;
 
 fn main() {
     let point_x = String::from("0x50863AD64A87AE8A2FE83C1AF1A8403CB53F53E486D8511DAD8A04887E5B2352");
@@ -20,6 +23,9 @@ fn main() {
     let result:[u8; 65] = p.concatenate();
     let r = str::from_utf8(&result).unwrap();
     println!("result = {}", r);
+
+    let sha = hash::get_sha256(&result);
+    println!("hash = {:#?}", sha);
 }
 
 
