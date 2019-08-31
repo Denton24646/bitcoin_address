@@ -3,7 +3,6 @@ use std::str;
 
 use crate::point::Concat;
 
-
 mod point;
 
 fn main() {
